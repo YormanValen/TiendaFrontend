@@ -1,0 +1,66 @@
+<aside
+  id="sidebar-multi-level-sidebar"
+  class="flex flex-col top-0 left-0 z-40 w-64 h-fit transition-transform -translate-x-full sm:translate-x-0"
+  aria-label="Sidebar"
+>
+  <div class="h-full w-full px-3 py-4 overflow-y-auto bg-gray-50">
+    <ul class="space-y-2 font-medium">
+      <li
+        class="w-full flex justify-center items-center p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 ease-in-out duration-300 group"
+      >
+        <h1 class="text-lg font-extrabold">Categories</h1>
+      </li>
+      <li>
+        <button
+          (click)="categorySelected.emit(1)"
+          class="w-full flex justify-center items-center p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white ease-in-out duration-300 group"
+        >
+          <span class="">Drinks</span>
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="categorySelected.emit(2)"
+          class="w-full flex justify-center items-center dark:hover:text-white ease-in-out duration-300 p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <span class="">Lunch</span>
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="categorySelected.emit(3)"
+          class="w-full flex justify-center items-center dark:hover:text-white ease-in-out duration-300 p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <span class="">Food</span>
+        </button>
+      </li>
+      <li>
+        <button
+          (click)="categorySelected.emit(4)"
+          class="w-full flex justify-center items-center dark:hover:text-white ease-in-out duration-300 p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <span class="">Sea</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="space-y-2 font-medium">
+    <label
+      class="w-full flex justify-center items-center p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 ease-in-out duration-300 group"
+    >
+      <h1 class="text-lg font-extrabold">Categories</h1>
+    </label>
+    <select
+      class="w-full p-2 text-gray-900 rounded-lg dark:text-bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      (change)="onCategorySelected($event)"
+    >
+      <option value="-1">Select a category</option>
+      <option value=1>Drinks</option>
+      <option value=2>Lunch</option>
+      <option value=3>Food</option>
+      <option value=4>Sea</option>
+    </select>
+  </div>
+
+</aside>
