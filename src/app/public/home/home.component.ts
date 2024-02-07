@@ -13,6 +13,7 @@ export class HomeComponent {
   selectedCategoryId: number | null = null;
   selectedAvailable: boolean | null = null;
   selectedBestSeller: boolean | null = null; // Nueva variable para productos más vendidos
+  selectedPrice: number = 0 ;
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +34,10 @@ export class HomeComponent {
 
   selectBestSeller(bestSeller: boolean) {
     this.selectedBestSeller = bestSeller;
+  }
+
+  selectPrice(price: number) {
+    this.selectedPrice = price;
   }
 
   agregarCarrito(producto: any) {

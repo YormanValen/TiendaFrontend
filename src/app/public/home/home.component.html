@@ -4,6 +4,7 @@
       (categorySelected)="selectCategory($event)"
       (availableSelected)="selectAvailable($event)"
       (bestSellersSelected)="selectBestSeller($event)"
+      (priceSelected)="selectPrice($event)"
     ></app-sidebar>
   </div>
 
@@ -16,7 +17,10 @@
           (selectedCategoryId === null ||
             product.categories.includes(selectedCategoryId)) &&
           (selectedBestSeller === null ||
-            product.bestSellers === selectedBestSeller)
+            product.best_seller === selectedBestSeller) &&
+          (selectedPrice === 0 ||
+            (selectedPrice === 30000 && product.price > 30000) ||
+            (selectedPrice === 10000 && product.price < 10000))
         "
         class="w-[20rem] bg-white ml-2 mb-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
