@@ -6,12 +6,25 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  //necesito metodo para mostrar solo los productos de la categoria seleccionada en el home
   @Output() categorySelected = new EventEmitter<number>();
+  @Output() availableSelected = new EventEmitter<boolean>();
+  @Output() bestSellersSelected = new EventEmitter<boolean>();
 
   onCategorySelected(event: any) {
-    const selectedCategoryId = event.target.value;
-    console.log('Categoria seleccionada: ' + selectedCategoryId);
+    const selectedCategoryId = +event.target.value;
+    console.log('Category selected: ' + selectedCategoryId);
     this.categorySelected.emit(selectedCategoryId);
+  }
+
+  onAvailableSelected(event: any) {
+    const selectedAvailable = Boolean(event.target.value);
+    console.log('Availability selected: ' + typeof selectedAvailable);
+    this.availableSelected.emit(selectedAvailable);
+  }
+
+  onBestSellersSelected(event: any) {
+    const selectedBestSellers = Boolean(event.target.value);
+    console.log('Best Sellers selected: ' + typeof selectedBestSellers);
+    this.bestSellersSelected.emit(selectedBestSellers);
   }
 }

@@ -1,13 +1,24 @@
 <div class="products_list p-5 flex">
   <div class="sidebar_ctn">
-    <app-sidebar (categorySelected)="selectCategory($event)"></app-sidebar>
+    <app-sidebar
+      (categorySelected)="selectCategory($event)"
+      (availableSelected)="selectAvailable($event)"
+      (bestSellersSelected)="selectBestSeller($event)"
+    ></app-sidebar>
   </div>
-  
-  <ul class="products flex w-full flex-wrap ">
-    <li *ngFor="let product of datos.products">
+
+  <ul class="products flex w-full flex-wrap">
+    <li *ngFor="let product of datos?.products">
       <div
-      *ngIf="selectedCategoryId === null || product.categories.includes(selectedCategoryId)"
-        class="w-[20rem]  bg-white ml-2 mb-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        *ngIf="
+          (selectedAvailable === null ||
+            product.available === selectedAvailable) &&
+          (selectedCategoryId === null ||
+            product.categories.includes(selectedCategoryId)) &&
+          (selectedBestSeller === null ||
+            product.bestSellers === selectedBestSeller)
+        "
+        class="w-[20rem] bg-white ml-2 mb-2 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
         <img class="p-8 rounded-lg" [src]="product.img" alt="product image" />
 

@@ -11,13 +11,15 @@ import { Product } from 'src/app/entities/producto';
 export class HomeComponent {
   datos: any;
   selectedCategoryId: number | null = null;
-
+  selectedAvailable: boolean | null = null;
+  selectedBestSeller: boolean | null = null; // Nueva variable para productos más vendidos
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.http.get('assets/productos.json').subscribe((data) => {
       this.datos = data;
+      console.log(this.datos);
     });
   }
 
@@ -25,6 +27,13 @@ export class HomeComponent {
     this.selectedCategoryId = categoryId;
   }
 
+  selectAvailable(available: boolean) {
+    this.selectedAvailable = available;
+  }
+
+  selectBestSeller(bestSeller: boolean) {
+    this.selectedBestSeller = bestSeller;
+  }
 
   agregarCarrito(producto: any) {
     console.log('Agregando al carrito: ');
